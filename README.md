@@ -75,29 +75,14 @@ The local **LLaMA 3** model converts the conversational question into a clean se
 
 ---
 
-## 👥 The 4-Role Perspective
+## 💡 Technical Architecture & Core Strengths
 
-### 🟢 1. For Beginners (The Simple Mental Model)
-* **Analogy:** Imagine taking an **open-book test**. Instead of memorizing every news story in the world, the AI uses DuckDuckGo to open the latest web pages, finds the relevant paragraphs, and writes down the answer with page references.
-* **Why it's great:** You get up-to-date information for free, with direct links to the articles so you can verify the facts yourself.
-
-### 🔵 2. For Senior Engineers & Architects (Technical Mechanics)
-* **Decoupled Architecture:** Asynchronous ASGI backend built on **FastAPI**, delegating search and scraping without blocking concurrent requests.
-* **Deterministic Chunking:** Employs a 10% overlap ($50/500$ chars) to preserve context continuity across paragraph boundaries.
-* **Dense Retrieval:** Sub-millisecond vector similarity search using Cosine distance inside an in-memory **ChromaDB** collection.
-* **Latency Telemetry:** Granular instrumentation isolating network extraction latency ($t_{\text{search}}$) from autoregressive inference latency ($t_{\text{gen}}$).
-
-### 🟣 3. For HR & Technical Recruiters (Competencies Demonstrated)
-* **High-Demand Skillsets:**
-  * **Applied Generative AI:** Practical RAG architecture, prompt engineering, zero-shot query rewriting.
-  * **Vector Databases & Embeddings:** Hands-on implementation of ChromaDB and Sentence-Transformers.
-  * **Modern Web Development:** Asynchronous Python (FastAPI, Uvicorn) + responsive glassmorphic UI.
-* **Ideal Roles:** AI Application Engineer, GenAI Developer, Python Full-Stack Developer, Machine Learning Engineer.
-
-### 🟠 4. For Engineering Managers & Leaders (Business Value & ROI)
-* **Cost Efficiency:** **$0 ongoing API costs**. Eliminates per-token charges from OpenAI, Google Search API, or Pinecone cloud subscriptions.
-* **Data Security & Privacy:** Runs 100% on internal infrastructure. Zero customer or proprietary data is leaked to third-party AI APIs (essential for GDPR/HIPAA compliance).
-* **Factual Reliability:** Enforces source grounding to protect against misleading or fabricated AI answers.
+* **Asynchronous Web Service:** Built on **FastAPI** (`ASGI`) with non-blocking request handling, ensuring responsive client interactions and static asset delivery.
+* **Intelligent Query Transformation:** Strips conversational noise and extracts high-density keywords using a single-pass LLaMA 3 query reformulator.
+* **Context-Preserving Chunking:** Employs a 10% overlap ($50 / 500$ characters) to preserve conceptual continuity across paragraph transitions.
+* **Dense Semantic Retrieval:** Sub-millisecond vector similarity search using Cosine distance inside an in-memory **ChromaDB** collection.
+* **Hallucination Prevention:** Hard-bounds model output to verified web context, eliminating speculative parametric generation.
+* **Cost & Privacy First:** Runs completely on-device with **$0 API costs** and **100% data privacy** (compliant with strict data governance standards).
 
 ---
 
