@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+chromadb
+sentence-transformers
+duckduckgo-search
+requests
+beautifulsoup4
+jinja2
